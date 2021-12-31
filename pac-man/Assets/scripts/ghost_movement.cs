@@ -137,20 +137,20 @@ public class ghost_movement : MonoBehaviour
             if (macierz[positionY, positionX] == 2)
             {
                 double dist1 = 1000, dist2 = 1000, dist3 = 1000, dist4 = 1000, mindist = 1000;
-                if (macierz[positionY - 1, positionX] == 0 && kierunek != 3) //góra
+                if (macierz[positionY - 1, positionX] != 1 && kierunek != 3) //góra
                 {
                     dist1 = Mathf.Sqrt((positionY - 1 - pacY) * (positionY - 1 - pacY) + (positionX - pacX) * (positionX - pacX));
 
                 }
-                if (macierz[positionY, positionX + 1] == 0 && kierunek != 4) //prawo
+                if (macierz[positionY, positionX + 1] != 1 && kierunek != 4) //prawo
                 {
                     dist2 = Mathf.Sqrt((positionY - pacY) * (positionY - pacY) + (positionX + 1 - pacX) * (positionX + 1 - pacX));
                 }
-                if (macierz[positionY + 1, positionX] == 0 && kierunek != 1) //dół
+                if (macierz[positionY + 1, positionX] != 1 && kierunek != 1) //dół
                 {
                     dist3 = Mathf.Sqrt((positionY + 1 - pacY) * (positionY + 1 - pacY) + (positionX - pacX) * (positionX - pacX));
                 }
-                if (macierz[positionY, positionX - 1] == 0 && kierunek != 2) //lewo
+                if (macierz[positionY, positionX - 1] != 1 && kierunek != 2) //lewo
                 {
                     dist4 = Mathf.Sqrt((positionY - pacY) * (positionY - pacY) + (positionX - 1 - pacX) * (positionX - 1 - pacX));
                 }
@@ -214,6 +214,93 @@ public class ghost_movement : MonoBehaviour
 
         }
     }
+
+    void avoid()
+    {
+        pacX = GameObject.Find("pac-man").GetComponent<Movement>().positionX;
+        pacY = GameObject.Find("pac-man").GetComponent<Movement>().positionY;
+        nrframe += Time.deltaTime;
+        if (nrframe > .25f)
+        {
+            nrframe = 0;
+            if (macierz[positionY, positionX] == 2)
+            {
+                double dist1 = 0, dist2 = 0, dist3 = 0, dist4 = 0, maxdist = 0;
+                if (macierz[positionY - 1, positionX] != 1 && kierunek != 3) //góra
+                {
+                    dist1 = Mathf.Sqrt((positionY - 1 - pacY) * (positionY - 1 - pacY) + (positionX - pacX) * (positionX - pacX));
+
+                }
+                if (macierz[positionY, positionX + 1] != 1 && kierunek != 4) //prawo
+                {
+                    dist2 = Mathf.Sqrt((positionY - pacY) * (positionY - pacY) + (positionX + 1 - pacX) * (positionX + 1 - pacX));
+                }
+                if (macierz[positionY + 1, positionX] != 1 && kierunek != 1) //dół
+                {
+                    dist3 = Mathf.Sqrt((positionY + 1 - pacY) * (positionY + 1 - pacY) + (positionX - pacX) * (positionX - pacX));
+                }
+                if (macierz[positionY, positionX - 1] != 1 && kierunek != 2) //lewo
+                {
+                    dist4 = Mathf.Sqrt((positionY - pacY) * (positionY - pacY) + (positionX - 1 - pacX) * (positionX - 1 - pacX));
+                }
+
+                if (dist1 > maxdist)
+                {
+                    kierunek = 1;
+                    maxdist = dist1;
+                }
+                if (dist2 > maxdist)
+                {
+                    kierunek = 2;
+                    maxdist = dist2;
+                }
+                if (dist3 > maxdist)
+                {
+                    kierunek = 3;
+                    maxdist = dist3;
+                }
+                if (dist4 > maxdist)
+                {
+                    kierunek = 4;
+                    maxdist = dist4;
+                }
+            }
+            if (kierunek == 1)
+            {
+                if (macierz[positionY - 1, positionX] != 1)
+                {
+                    transform.Translate(Vector2.up * speed);
+                    positionY -= 1;
+                }
+            }
+            if (kierunek == 2)
+            {
+                if (macierz[positionY, positionX + 1] != 1)
+                {
+                    transform.Translate(Vector2.right * speed);
+                    positionX += 1;
+                }
+            }
+            if (kierunek == 3)
+            {
+                if (macierz[positionY + 1, positionX] != 1)
+                {
+                    transform.Translate(-Vector2.up * speed);
+                    positionY += 1;
+                }
+            }
+            if (kierunek == 4)
+            {
+                if (macierz[positionY, positionX - 1] != 1)
+                {
+                    transform.Translate(-Vector2.right * speed);
+                    positionX -= 1;
+                }
+            }
+
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

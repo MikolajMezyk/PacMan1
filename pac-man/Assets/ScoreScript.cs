@@ -14,6 +14,15 @@ public class ScoreScript : MonoBehaviour
         MyscoreText.text = "Score: " + Scorenum;
     }
 
+    private void OnTriggerEnter2D(Collider2D Coin)
+    {
+        if (Coin.tag == "Mycoin")
+        {
+            Scorenum++;
+            Destroy(Coin.gameObject);
+            MyscoreText.text = "Score: " + Scorenum;
+        }
+    }
     // Update is called once per frame
     void Update()
     {

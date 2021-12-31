@@ -45,8 +45,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 677, y: 492}
-  m_MaxSize: {x: 14001, y: 14042}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
   controlID: 127
 --- !u!114 &3
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 515
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -402,19 +402,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/scripts
+    - Assets/prefab
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/scripts
+  - Assets/prefab
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\python\projekt_RSA\PacMan1\pac-man
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fe390000
-    m_LastClickedID: 14846
+    m_SelectedIDs: fa390000
+    m_LastClickedID: 14842
     m_ExpandedIDs: 00000000e239000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -566,9 +566,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 62390000
-      m_LastClickedID: 14690
-      m_ExpandedIDs: 64fbffff
+      m_SelectedIDs: 9edcffff
+      m_LastClickedID: -9058
+      m_ExpandedIDs: 64fbffff1a3900002a3900006e390000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -628,9 +628,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.27752155, y: 16.028563, z: -354.7746}
+    m_Target: {x: -15.432275, y: -4.847323, z: -0.5830078}
     speed: 2
-    m_Value: {x: -0.86212605, y: 15.353741, z: -354.69382}
+    m_Value: {x: -15.432275, y: -4.847323, z: -0.5830078}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -680,9 +680,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 18.771484
+    m_Target: 5.517445
     speed: 2
-    m_Value: 17.963142
+    m_Value: 5.517445
   m_Ortho:
     m_Target: 1
     speed: 2
