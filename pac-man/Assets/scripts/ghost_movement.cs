@@ -21,7 +21,7 @@ public class ghost_movement : MonoBehaviour
         { 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1 },
         { 1, 2, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 0, 1, 1, 2, 0, 2, 1, 1, 2, 1, 1, 1, 2, 0, 2, 1, 1, 0, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, 1 },
         { 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1 },
-        { 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 0, 0, 2, 1, 1, 1, 1, 2, 0, 0, 2, 0, 0, 0, 2, 1, 1, 1, 1, 2, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1 },
+        { 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 0, 0, 2, 1, 1, 1, 1, 2, 0, 0, 2, 0, 0, 0, 2, 1, 1, 1, 1, 2, 0, 0, 2, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1 },
         { 1, 2, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, 1 },
         { 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1 },
         { 1, 0, 1, 1, 1, 1, 1, 1, 2, 0, 0, 2, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 2, 0, 0, 2, 1, 1, 1, 1, 1, 1, 0, 1 },
@@ -48,20 +48,20 @@ public class ghost_movement : MonoBehaviour
             if (macierz[positionY, positionX] == 2)
             {
                 double dist1 = 1000, dist2 = 1000, dist3 = 1000, dist4 = 1000, mindist = 1000;
-                if (macierz[positionY-1, positionX] == 0 && kierunek != 3) //góra
+                if (macierz[positionY-1, positionX] != 1 && kierunek != 3) //góra
                 {
                     dist1 = Mathf.Sqrt((positionY - 1 - Ygoal) * (positionY - 1 - Ygoal) + (positionX - Xgoal) * (positionX - Xgoal));
                     
                 }
-                if (macierz[positionY, positionX+1] == 0 && kierunek != 4) //prawo
+                if (macierz[positionY, positionX+1] != 1 && kierunek != 4) //prawo
                 {
                     dist2 = Mathf.Sqrt((positionY - Ygoal) * (positionY - Ygoal) + (positionX + 1 - Xgoal) * (positionX + 1 - Xgoal));
                 }
-                if (macierz[positionY + 1, positionX] == 0 && kierunek != 1) //dół
+                if (macierz[positionY + 1, positionX] != 1 && kierunek != 1) //dół
                 {
                     dist3 = Mathf.Sqrt((positionY + 1 - Ygoal) * (positionY + 1 - Ygoal) + (positionX - Xgoal) * (positionX - Xgoal));
                 }
-                if (macierz[positionY, positionX - 1] == 0 && kierunek != 2) //lewo
+                if (macierz[positionY, positionX - 1] != 1 && kierunek != 2) //lewo
                 {
                     dist4 = Mathf.Sqrt((positionY - Ygoal) * (positionY - Ygoal) + (positionX - 1 - Xgoal) * (positionX - 1 - Xgoal));
                 }

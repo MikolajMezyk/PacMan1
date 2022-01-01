@@ -16,7 +16,7 @@ public class ScoreScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D Coin)
     {
-        if (Coin.tag == "Mycoin")
+        if (Coin.gameObject.CompareTag("Mycoin"))
         {
             Scorenum++;
             Destroy(Coin.gameObject);
